@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation List</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        li span {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        a[href*="update"] {
+            background-color: #6c63ff;
+            margin-right: 8px;
+        }
+
+        a[href*="delete"] {
+            background-color: #ff5c5c;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <% reservations.forEach(reservation => { %>
+          <li>
+            <span><%= reservation.firstName %> <%= reservation.lastName %></span>
+            <div>
+              <a href="/reservations/update/<%= reservation._id %>">Edit</a>
+              <a href="/reservations/delete/<%= reservation._id %>">Delete</a>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+</body>
+</html>

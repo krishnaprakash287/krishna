@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Reservation</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+            padding: 1rem;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        form h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        form input:focus {
+            border-color: #6c63ff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #6c63ff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #574bce;
+        }
+
+        form input::placeholder {
+            color: #aaa;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="/reservations/update/<%= reservation._id %>" method="POST">
+        <h2>Update Reservation</h2>
+        <input type="text" name="firstName" value="<%= reservation.firstName %>" required />
+        <input type="text" name="lastName" value="<%= reservation.lastName %>" required />
+        <input type="email" name="email" value="<%= reservation.email %>" required />
+        <input type="text" name="phone" value="<%= reservation.phone %>" required />
+        <input type="date" name="date" value="<%= reservation.date %>" required />
+        <input type="time" name="time" value="<%= reservation.time %>" required />
+        <button type="submit">Update Reservation</button>
+    </form>
+</body>
+</html>
